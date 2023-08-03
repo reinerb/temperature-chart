@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 interface Props {
   children: React.ReactNode;
 }
 
 function Month({ children }: Props) {
-  return <section>{children}</section>;
+  return <section className="grid-cols-week grid">{children}</section>;
 }
 
 export default Month;

@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{js,jsx,ts,tsx,html}', './index.html'],
+  content: ["./src/**/*.{js,jsx,ts,tsx,html}", "./index.html"],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        week: "repeat(7, auto)",
+      },
+    },
   },
   plugins: [],
 };

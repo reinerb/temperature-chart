@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface Props {
   month: string;
   day: number;
@@ -9,10 +7,10 @@ interface Props {
 
 function Day({ month, day, temperature, celsius }: Props) {
   return (
-    <div>
+    <div className="flex h-24 w-24 flex-col items-center justify-center">
       <p>{month}</p>
       <p>{day}</p>
-      <p>{`${temperature}°${celsius ? 'C' : 'F'}`}</p>
+      <p>{`${temperature}°${celsius ? "C" : "F"}`}</p>
     </div>
   );
 }
