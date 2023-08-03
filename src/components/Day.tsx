@@ -13,7 +13,7 @@ const getTemperatureStyles = (temperature: number) => {
   } else if (temperature >= 80) {
     return "bg-orange-600 text-white";
   } else if (temperature >= 70) {
-    return "bg-yellow-500 text-black";
+    return "bg-amber-500 text-white";
   } else if (temperature >= 60) {
     return "bg-green-800 text-white";
   } else if (temperature >= 50) {
