@@ -9,10 +9,17 @@ const testTempData: number[] = [
 function App() {
   return (
     <main className="container mx-auto my-auto min-h-screen">
-      <Month month="July">
-        {testTempData.map((element, index) => (
-          <Day day={index + 1} temperature={element} celsius={false} />
-        ))}
+      <Month month="July" offset={6}>
+        {(offset: number) =>
+          testTempData.map((element, index) => (
+            <Day
+              day={index + 1}
+              temperature={element}
+              celsius={false}
+              weekday={((offset + index) % 7) + 1}
+            />
+          ))
+        }
       </Month>
     </main>
   );

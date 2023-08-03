@@ -3,17 +3,18 @@ import { weekdaysFirstLetter } from "../utils/weekdays";
 
 interface Props {
   month: string;
-  children: React.ReactNode;
+  offset: number;
+  children: (offset: number) => React.ReactNode;
 }
 
-function Month({ month, children }: Props) {
+function Month({ month, offset, children }: Props) {
   return (
-    <section className="grid w-fit grid-cols-week gap-1">
-      <div className="col-span-7">{month}</div>
+    <section className="grid w-fit grid-flow-row grid-cols-week gap-1">
+      <div className="col-span-full">{month}</div>
       {weekdaysFirstLetter.map((element) => (
         <div className="mx-auto">{element}</div>
       ))}
-      {children}
+      {children(offset)}
     </section>
   );
 }
