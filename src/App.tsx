@@ -5,6 +5,7 @@ import MonthGrid from "./components/MonthGrid";
 import { getWeatherData } from "./utils/getWeatherData";
 import { MonthlyWeatherEntry } from "./utils/types";
 import moment from "moment";
+import { SyncLoader } from "react-spinners";
 
 function App() {
   const [weatherData, setWeatherData] = useState<MonthlyWeatherEntry[]>();
@@ -30,23 +31,35 @@ function App() {
   }, []);
 
   return (
-    <MonthGrid celsius={false}>
-      {weatherData &&
-        weatherData.map((element) => (
-          <Month month={element.month} year={element.year}>
-            {(offset: number) =>
-              element.dailyData.map((element, index) => (
-                <Day
-                  day={moment(element.date).format("D")}
-                  temperature={element.temperature}
-                  celsius={false}
-                  weekday={((offset + index) % 7) + 1}
-                />
-              ))
-            }
-          </Month>
-        ))}
-    </MonthGrid>
+    <>
+      {weatherData ? (
+        <MonthGrid celsius={false}>
+          {weatherData.map((element) => (
+            <Month
+              key={`${element.month} ${element.year}`}
+              month={element.month}
+              year={element.year}
+            >
+              {(offset: number) =>
+                element.dailyData.map((element, index) => (
+                  <Day
+                    key={element.date}
+                    day={moment(element.date).format("D")}
+                    temperature={element.temperature}
+                    celsius={false}
+                    weekday={((offset + index) % 7) + 1}
+                  />
+                ))
+              }
+            </Month>
+          ))}
+        </MonthGrid>
+      ) : (
+        <main className="min-h-screen">
+          <SyncLoader className="m-auto" />
+        </main>
+      )}
+    </>
   );
 }
 
