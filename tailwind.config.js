@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       gridTemplateColumns: {
-        week: "repeat(7, min-content)",
+        "week-xs": "repeat(7, 40px)",
+        "week-sm": "repeat(7, 56px)",
         "month-grid-1": "repeat(1, min-content)",
         "month-grid-2": "repeat(2, min-content)",
         "month-grid-3": "repeat(3, min-content)",

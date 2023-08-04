@@ -1,5 +1,5 @@
 interface Props {
-  day: number;
+  day: string;
   temperature: number;
   celsius: boolean;
   weekday: number;
@@ -32,7 +32,7 @@ function Day({ day, temperature, celsius, weekday }: Props) {
     <div
       className={`h-10 w-10 sm:h-14 sm:w-14 ${getTemperatureStyles(
         temperature,
-      )} text-white ${day === 1 && `col-start-${weekday}`}`}
+      )} text-white ${day === "1" && `col-start-${weekday}`}`}
     >
       <div className="m-auto flex cursor-pointer flex-col items-center justify-center opacity-0 transition-opacity duration-300 focus-within:opacity-100 hover:opacity-100">
         <p className="text-sm sm:text-xl">{day}</p>
