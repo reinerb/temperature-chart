@@ -1,27 +1,23 @@
-# React + TypeScript + Vite
+# React Temperature Chart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I built a display for historical temperature data, queried from the [OpenMeteo Historical Weather API](https://open-meteo.com/en/docs/historical-weather-api).
 
-Currently, two official plugins are available:
+Currently this displays data in my hometown for the year to date.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Hovering each day shows the numerical date and the highest temperature of the day.
 
-## Expanding the ESLint configuration
+Inspired by cross stitch projects like [this one](https://i.redd.it/5i3d4avko2a81.jpg) and the one my partner is working on.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technologies used
 
-- Configure the top-level `parserOptions` property like this:
+- React
+- TailwindCSS
+- TypeScript
+- The OpenMeteo Historical Weather API
+- Vite
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Future features
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Allow users to set their own location.
+- Allow users to set their own time range, rather than year-to-date.
+- Allow users to set their own color scheme.
