@@ -1,4 +1,5 @@
 interface Props {
+  key: string;
   day: string;
   temperature: number;
   celsius: boolean;
