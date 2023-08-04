@@ -9,8 +9,8 @@ interface Props {
 
 function Month({ month, offset, children }: Props) {
   return (
-    <section className="grid w-fit grid-flow-row grid-cols-week gap-1">
-      <div className="col-span-full">{month}</div>
+    <section className="grid w-fit grid-flow-row auto-rows-min grid-cols-week gap-1">
+      <h2 className="col-span-full text-center text-xl font-bold">{month}</h2>
       {weekdaysFirstLetter.map((element) => (
         <div className="mx-auto">{element}</div>
       ))}
