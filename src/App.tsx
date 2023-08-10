@@ -3,21 +3,29 @@ import Day from "./components/Day";
 import Month from "./components/Month";
 import MonthGrid from "./components/MonthGrid";
 import { getWeatherData } from "./utils/getWeatherData";
-import { MonthlyWeatherEntry } from "./utils/types";
+import { Coordinates, DateRange, MonthlyWeatherEntry } from "./utils/types";
 import moment from "moment";
 import { SyncLoader } from "react-spinners";
 
 function App() {
   const [weatherData, setWeatherData] = useState<MonthlyWeatherEntry[]>();
+  const [coordinates, setCoordinates] = useState<Coordinates>({
+    latitude: 42.4334,
+    longitude: -71.4495,
+  });
+  const [dateRange, setDateRange] = useState<DateRange>({
+    start: `${moment().format("YYYY")}-01-01`,
+    end: moment().format("YYYY-MM-DD"),
+  });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const weatherQuery = await getWeatherData(
-          42.4334,
-          -71.4495,
-          "2023-01-01",
-          moment().format("YYYY-MM-DD"),
+          coordinates.latitude,
+          coordinates.longitude,
+          dateRange.start,
+          dateRange.end,
         );
 
         setWeatherData(weatherQuery);
@@ -55,8 +63,8 @@ function App() {
           ))}
         </MonthGrid>
       ) : (
-        <main className="min-h-screen">
-          <SyncLoader className="m-auto" />
+        <main className="flex min-h-screen items-center justify-center">
+          <SyncLoader color="teal" />
         </main>
       )}
     </>

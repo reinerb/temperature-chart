@@ -8,3 +8,13 @@ export type MonthlyWeatherEntry = {
   year: string;
   dailyData: DailyWeatherEntry[];
 };
+
+export type Coordinates = {
+  latitude: number;
+  longitude: number;
+};
+
+export type DateRange = {
+  start: string;
+  end: string;
+};
