@@ -17,7 +17,7 @@ function App() {
           42.4334,
           -71.4495,
           "2023-01-01",
-          "2023-08-03",
+          moment().format("YYYY-MM-DD"),
         );
 
         setWeatherData(weatherQuery);
